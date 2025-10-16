@@ -18,7 +18,11 @@ const cart = ref(0)
 const addToCart = () => {
   cart.value += 1
 }
-
+const removefromCart = () => {
+  if (cart.value > 0) {
+    cart.value -= 1
+  }
+}
 const updateImage = (variantImage) => {
   image.value = variantImage
 }
@@ -51,7 +55,11 @@ const updateImage = (variantImage) => {
                 {{size}}
               </ul>
                 </div>
-              <button @click="addToCart" class="button">Add to Cart</button>
+                <div class="flex flex-row gap-4 my-4">
+                      <button @click="addToCart" class="bg-green-400 text-white rounded-lg p-2 font-bold">+ Add to Cart</button>
+                      <button @click="removefromCart" class="bg-black text-white rounded-lg p-2 font-bold">- Remove from Cart</button>
+                </div>
+       
           </div>
         </div>
   </div>
